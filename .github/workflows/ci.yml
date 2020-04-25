@@ -11,5 +11,5 @@ jobs:
         uses: docker://golang:1.13-stretch
         run: sh refresh-dev-env.sh
       - name: "Run linter"
-          uses: docker://golang:1.13-stretch
-          run: sh linter.sh
+        uses: docker://golang:1.13-stretch
+        run: sh linter.sh
