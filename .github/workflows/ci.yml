@@ -1,0 +1,15 @@
+name: "Continuous Integration"
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  lint:
+    steps:
+      - name: "Download linter"
+        uses: docker://golang:1.13-stretch
+        run: sh refresh-dev-env.sh
+      - name: "Run linter"
+          uses: docker://golang:1.13-stretch
+          run: sh linter.sh

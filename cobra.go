@@ -80,7 +80,7 @@ func findFlag(cmd *cobra.Command, flagPath string) (*pflag.Flag, error) {
 	if nil == subCmd {
 		return nil, fmt.Errorf("not found %s sub command", pathParts[0])
 	}
-	subPath := strings.Join(pathParts[1:len(pathParts)], ".")
+	subPath := strings.Join(pathParts[1:], ".")
 	flag, err := findFlag(subCmd, subPath)
 	if err != nil {
 		return nil, fmt.Errorf("search %s: %w", pathParts[0], err)

@@ -14,7 +14,7 @@ type PFlagConfiguration struct {
 func (c PFlagConfiguration) Initialize(viper *viper.Viper) error {
 	for cfgKey, flag := range c.Bindings {
 		if err := viper.BindPFlag(cfgKey, flag); nil != err {
-			return fmt.Errorf("bind flags {cli:%s,cfg:%s}: %w", flag, cfgKey, err)
+			return fmt.Errorf("bind flags {cli:%s,cfg:%s}: %w", flag.Name, cfgKey, err)
 		}
 	}
 	return nil
