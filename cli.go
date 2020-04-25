@@ -2,16 +2,11 @@ package berus
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )
 
-type CommandLineKey struct {
-	Command *cobra.Command
-	Key     string
-}
-
+// PFlagConfiguration is used to setup binding between cobra flags and viper configuration
 type PFlagConfiguration struct {
 	Bindings map[string]*pflag.Flag
 }
