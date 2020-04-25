@@ -5,13 +5,17 @@ import (
 	"github.com/spf13/viper"
 )
 
+// Initialize represent a object that will initialize some viper options for the given instance.
 type Initializer interface {
 	Initialize(viper *viper.Viper) error
 }
 
+// Configuration will load viper configuration using different combinaisons of Initializers
 type Configuration struct {
 	viper        *viper.Viper
+	// Option to force the usage of a specific file. Leave empty to ignore.
 	ForcedFile   string
+	// Initializers will initialize options of viper for some type of configuration (file, envvar, cli, ...)
 	Initializers []Initializer
 }
 
@@ -23,6 +27,7 @@ func NewConfiguration(initializers []Initializer) *Configuration {
 	}
 }
 
+// ReadConfiguration will initialize viper configuration and read values to populate the initialized viper instance.
 func (c *Configuration) ReadConfiguration() error {
 	if err := c.Initialize(c.viper); nil != err {
 		return err
@@ -36,6 +41,7 @@ func (c *Configuration) ReadConfiguration() error {
 	return nil
 }
 
+// Initialize will setup given viper instance with all registered initializers
 func (c Configuration) Initialize(vipercfg *viper.Viper) error {
 	if c.ForcedFile != "" {
 		vipercfg.SetConfigFile(c.ForcedFile)
@@ -48,6 +54,7 @@ func (c Configuration) Initialize(vipercfg *viper.Viper) error {
 	return nil
 }
 
-func (c *Configuration) GetViperInstance() *viper.Viper {
+// Return viper instance associated with this Configuration
+func (c *Configuration) ViperInstance() *viper.Viper {
 	return c.viper
 }
