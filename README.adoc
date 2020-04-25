@@ -1,0 +1,11 @@
+= Berus
+
+berus is a package containing presets and helpers that I often use for https://github/spf13/viper[viper].
+It provide some helpers to interface with https://github.om/spf13/cobra[cobra] as well.
+
+== Documentation
+
+For the documentation, you can check
+
+* https://pkg.go.dev/github.com/normegil/berus[Go.dev]
+* https://pkg.go.dev/github.com/normegil/berus[Godoc]
