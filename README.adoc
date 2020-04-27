@@ -8,4 +8,4 @@ It provide some helpers to interface with https://github.om/spf13/cobra[cobra] a
 For the documentation, you can check
 
 * https://pkg.go.dev/github.com/normegil/berus[Go.dev]
-* https://pkg.go.dev/github.com/normegil/berus[Godoc]
+* https://godoc.org/github.com/normegil/berus[Godoc]
