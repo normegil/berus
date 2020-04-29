@@ -1,4 +1,4 @@
-module github/normegil/berus
+module github.com/normegil/berus
 
 go 1.13
 
